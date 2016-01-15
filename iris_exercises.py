@@ -15,35 +15,11 @@ from mpl_toolkits.mplot3d import Axes3D
 style.use('ggplot')
 
 #%%
-digits = datasets.load_digits()
-digits.images.shape
-pl.imshow(digits.images[0], cmap=pl.cm.gray_r) 
-
-data = digits.images.reshape((digits.images.shape[0], -1))
-
-gammas = np.logspace(-6, -1, 10)
-svc = svm.SVC()
-clf = grid_search.GridSearchCV(estimator=svc, param_grid=dict(gamma=gammas),
-                   n_jobs=-1)
-clf.fit(digits.data[:1000], digits.target[:1000]) 
-
-#%%
 iris = datasets.load_iris()
 iris.data.shape
 iris.target.shape
 np.unique(iris.target)
 
-#%%
-clf = svm.LinearSVC()
-clf.fit(iris.data, iris.target) # learn from the data 
-clf.predict([[ 1.0,  0.1,  1.3,  0.25]])
-clf.coef_
-
-#%%
-# Create and fit a nearest-neighbor classifier
-knn = neighbors.KNeighborsClassifier()
-knn.fit(iris.data, iris.target) 
-knn.predict([[0.1, 0.2, 0.3, 0.4]])
 
 #%% CLUSTERING
 #sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
@@ -96,3 +72,15 @@ ax.set_zlabel('Feature 3')
 ax.set_xticks([])                               
 ax.set_yticks([])                               
 ax.set_zticks([])
+
+#%%
+clf = svm.LinearSVC()
+clf.fit(iris.data, iris.target) # learn from the data 
+clf.predict([[ 1.0,  0.1,  1.3,  0.25]])
+clf.coef_
+
+#%%
+# Create and fit a nearest-neighbor classifier
+knn = neighbors.KNeighborsClassifier()
+knn.fit(iris.data, iris.target) 
+knn.predict([[0.1, 0.2, 0.3, 0.4]])

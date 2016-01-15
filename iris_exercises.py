@@ -76,7 +76,7 @@ ax.set_zticks([])
 #%%
 clf = svm.LinearSVC()
 clf.fit(iris.data, iris.target) # learn from the data 
-clf.predict([[ 1.0,  0.1,  1.3,  0.25]])
+clf.predict([[ 2.0,  0.1,  1.3,  0.25]])
 clf.coef_
 
 #%%

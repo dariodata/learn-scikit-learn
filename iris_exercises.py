@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 14 12:40:11 2016
@@ -10,8 +11,8 @@ import numpy as np
 import pandas as pd
 import pylab as pl
 import matplotlib.pyplot as plt
-from matplotlib import style
 from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import style
 style.use('ggplot')
 
 #%%

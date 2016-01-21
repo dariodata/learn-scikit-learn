@@ -8,9 +8,7 @@ Created on Thu Jan 14 12:40:11 2016
 from sklearn import datasets, svm, neighbors, cluster, decomposition
 import numpy as np
 import pandas as pd
-import pylab as pl
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import style
 style.use('ggplot')
 

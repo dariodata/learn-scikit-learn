@@ -5,7 +5,7 @@ Created on Thu Jan 14 12:40:11 2016
 @author: arcosdid
 """
 
-from sklearn import datasets, svm, neighbors, cluster, decomposition
+from sklearn import datasets, svm, neighbors, cluster, decomposition, tree
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -82,3 +82,21 @@ clf.coef_
 knn = neighbors.KNeighborsClassifier()
 knn.fit(iris.data, iris.target) 
 knn.predict([[0.1, 0.2, 0.3, 0.4]])
+
+#%% Decision tree
+iris = datasets.load_iris()
+#iris.data.shape
+#iris.target.shape
+#np.unique(iris.target)
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(iris.data, iris.target)
+
+from sklearn.externals.six import StringIO  
+import pydot_ng as pydot
+dot_data = StringIO() 
+tree.export_graphviz(clf, out_file=dot_data) 
+graph = pydot.graph_from_dot_data(dot_data.getvalue()) 
+graph.write_pdf("iris.pdf")
+
+clf.predict(iris.data[:1, :])
+clf.predict_proba(iris.data[:1, :])
